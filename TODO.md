@@ -1,0 +1,4 @@
+- [ ] Homepage (about, navbar, etc)
+- [ ] Doctor Login View (form)
+- [ ] Patient ID form (form from PrimeVue)
+- [ ] Create patient view as well
