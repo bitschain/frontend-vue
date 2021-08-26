@@ -1,7 +1,5 @@
 <template>
-  <div v-bind:style="{ backgroundcolor: color}">
     <DoctorScreen1/>
-  </div>
 </template>
 
 <script>
