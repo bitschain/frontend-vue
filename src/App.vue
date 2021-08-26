@@ -1,16 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div v-bind:style="{ backgroundcolor: color}">
+    <DoctorScreen1/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DoctorScreen1 from './components/DoctorScreen1.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-  }
+    DoctorScreen1
+  },
 }
 </script>
 
@@ -23,4 +24,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+body{
+  background-color: #F2FFF5;
+}
+
 </style>
+
