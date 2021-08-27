@@ -4,8 +4,8 @@
 </template>
 
 <script>
-    import FormBox from "./FormBox.vue"
-    import SubmitForm2 from "./SubmitForm2.vue"
+    import FormBox from "../components/FormBox.vue"
+    import SubmitForm2 from "../components/SubmitForm2.vue"
 
 export default {
     name: "DoctorScreen2",
