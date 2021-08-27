@@ -9,8 +9,8 @@
 
 
 <script>
-    import FormBox from "./FormBox.vue"
-    import SubmitForm from "./SubmitForm.vue"
+    import FormBox from "../components/FormBox.vue"
+    import SubmitForm from "../components/SubmitForm.vue"
 
     export default {
         name: "DoctorScreen1",
