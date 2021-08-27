@@ -1,11 +1,11 @@
 <template>
-    <form @submit.prevent ="handleSubmit">
-        <label id = "input-title1">Name</label>
-        <input id = "input1" type="text" v-model="name"/>
-        <label id = "input-title2">Hospital</label>
-        <input id = "input2" type="text" v-model="hospital"/>
-        <button id = "submit">
-            <span id = "submit-text">Submit</span>
+    <form @submit.prevent="handleSubmit">
+        <label id="input-title1">Name</label>
+        <input id="input1" type="text" v-model="name"/>
+        <label id="input-title2">Hospital</label>
+        <input id="input2" type="text" v-model="hospital"/>
+        <button id="submit">
+            <span id="submit-text">Submit</span>
         </button>
     </form>
 </template>

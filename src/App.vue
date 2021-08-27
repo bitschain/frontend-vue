@@ -1,16 +1,13 @@
 <template>
-    <DoctorScreen1 />
+  <router-view></router-view>
 </template>
 
 <script>
-import DoctorScreen1 from './views/DoctorScreen1.vue'
+//import DoctorScreen1 from './views/DoctorScreen1.vue'
 
 
 export default {
   name: 'App',
-  components: {
-    DoctorScreen1,
-  },
 }
 </script>
 
