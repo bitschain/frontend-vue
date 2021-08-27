@@ -1,15 +1,19 @@
 <template>
-    <DoctorScreen1 />
+    <!-- <DoctorScreen1 /> -->
+    <DoctorScreen2 />
+
 </template>
 
 <script>
-import DoctorScreen1 from './views/DoctorScreen1.vue'
+// import DoctorScreen1 from './views/DoctorScreen1.vue'
+import DoctorScreen2 from './views/DoctorScreen2.vue'
 
 
 export default {
   name: 'App',
   components: {
-    DoctorScreen1,
+    // DoctorScreen1,
+    DoctorScreen2
   },
 }
 </script>
