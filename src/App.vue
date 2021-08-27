@@ -1,14 +1,17 @@
 <template>
     <DoctorScreen1/>
+    <!-- <DoctorScreen2 /> -->
 </template>
 
 <script>
 import DoctorScreen1 from './components/DoctorScreen1.vue'
+// import DoctorScreen2 from './components/DoctorScreen2.vue'
 
 export default {
   name: 'App',
   components: {
-    DoctorScreen1
+    DoctorScreen1,
+    // DoctorScreen2
   },
 }
 </script>
@@ -26,6 +29,7 @@ export default {
 body{
   background-color: #F2FFF5;
 }
+
 
 </style>
 
