@@ -3,8 +3,6 @@
 </template>
 
 <script>
-//import DoctorScreen1 from './views/DoctorScreen1.vue'
-
 
 export default {
   name: 'App',
