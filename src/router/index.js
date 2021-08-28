@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import DoctorScreen1 from  '../views/DoctorScreen1.vue'
 import DoctorScreen2 from '../views/DoctorScreen2.vue'
+import UploadDocuments from '../components/UploadDocuments.vue'
 
 const routes = [
     {
@@ -9,10 +10,15 @@ const routes = [
         component: DoctorScreen1
     },
     {
-        path: '/Patient',
+        path: '/patient',
         name: 'Patient',
         component: DoctorScreen2        
-    }
+    },
+    {
+        path: '/upload_documents',
+        name: 'UploadDocuments',
+        component: UploadDocuments,
+    },
 ]
 
 const router = createRouter({
