@@ -1,23 +1,27 @@
 <template>
     <input id="patientID" type="text">
     <button id="create-session"><span id="text1" @click="createSession">Create Session</span></button>
-    <button id="generate"><span id="text2">Generate Code</span></button>
+    <GenerateQRCode />
+    <QRcode />
     <!-- <button id = "upload"><span id = "text3">Upload Report</span></button> -->
     <UploadDocuments />
 
 </template>
 
 <script>
-import store from '../store'
+import store from '../store';
 import API_BASE_URL from '../data/urls';
 import axios from 'axios';
-
+import GenerateQRCode from "./GenerateQRCode";
 import UploadDocuments from "./UploadDocuments";
+import QRcode from '@/components/QRcode';
 
 export default {
     name: "PatientDetails",
     components: {
         UploadDocuments,
+        GenerateQRCode,
+        QRcode,
     },
     data(){
         return {
@@ -32,19 +36,19 @@ export default {
             const req = {
                 patientID : store.state.patientID,  
                 // need to generate the public key using some js library
-                publicKey: 1
+                publicKey: "AmfA+94gwP1OF8al3dIXjt9GoCjEsxfv/ECWDmacwARk"
             };   
 
             const FILE_UPLOAD_URL = API_BASE_URL + '/create_session'
             let res = await axios.post(FILE_UPLOAD_URL, req);
 
             if(res.status == 200){
-                console.log("Session created");
+                store.dispatch("setVisitID",res.data.visitId);
             }else {
                 alert("Could not create the session");
             }
         }
-    }
+    }     
 }
 </script>
 
@@ -69,16 +73,7 @@ export default {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;
     }
-    #generate{
-        position: absolute;
-        width: 270px;
-        height: 70px;
-        left: 165px;
-        top: 600px;
-        background: rgba(85, 219, 219, 0.2);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 50px;
-    }
+    
     #text1{
         position: absolute;
         width: 330px;
@@ -102,17 +97,5 @@ export default {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;
     }
-    #text2{
-        position: absolute;
-        width: 330px;
-        height: 49px;
-        left: -30px;
-        top: 10px;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 30px;
-        line-height: 49px;
-        color: #000000;
-    }
+    
 </style>
