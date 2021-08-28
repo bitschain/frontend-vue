@@ -3,8 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-createApp(App).use(router).use(store).mount('#app')
-
 import "primevue/resources/themes/bootstrap4-light-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
@@ -14,6 +12,7 @@ import PrimeVue from "primevue/config";
 import FileUpload from "primevue/fileupload";
 
 createApp(App)
+    .use(store)
     .use(router)
     .use(PrimeVue)
     .component("FileUpload", FileUpload)

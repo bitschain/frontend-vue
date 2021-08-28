@@ -1,7 +1,7 @@
 <template>
-    <input id = "patientID" type="text">
-    <button id = "create-session"><span id = "text1" @click = "HandleInput">Create Session</span></button>
-    <button id = "generate"><span id = "text2">Generate Code</span></button>
+    <input id="patientID" type="text">
+    <button id="create-session"><span id="text1" @click="HandleInput">Create Session</span></button>
+    <button id="generate"><span id="text2">Generate Code</span></button>
     <!-- <button id = "upload"><span id = "text3">Upload Report</span></button> -->
     <UploadDocuments />
 
@@ -11,7 +11,8 @@
 import store from '../store'
 import API_BASE_URL from '../data/urls';
 import axios from 'axios';
-import UploadDocuments from "./UploadDocuments"
+
+import UploadDocuments from "./UploadDocuments";
 
 export default {
     name: "SubmitForm2",
@@ -20,7 +21,7 @@ export default {
     },
     data(){
         return {
-            // store.patientID: "",
+            dummy: "",
         };
     },
     methods: {
