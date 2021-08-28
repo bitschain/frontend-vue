@@ -1,12 +1,49 @@
 <template>
-    <input type="text">
-    <button id = "generate"><span id = "text1">Generate Code</span></button>
-    <button id = "upload"><span id = "text2">Upload Report</span></button>
+    <input id = "patientID" type="text">
+    <button id = "create-session"><span id = "text1" @click = "HandleInput">Create Session</span></button>
+    <button id = "generate"><span id = "text2">Generate Code</span></button>
+    <!-- <button id = "upload"><span id = "text3">Upload Report</span></button> -->
+    <UploadDocuments />
+
 </template>
 
 <script>
+import store from '../store'
+import API_BASE_URL from '../data/urls';
+import axios from 'axios';
+import UploadDocuments from "./UploadDocuments"
+
 export default {
-    name: "SubmitForm2"
+    name: "SubmitForm2",
+    components: {
+        UploadDocuments,
+    },
+    data(){
+        return {
+            // store.patientID: "",
+        };
+    },
+    methods: {
+        handleInput(){
+            store.dispatch("setPatientID", document.getElementById("patientID").value);
+        },
+
+        async createSession(){
+            const req = {
+                patientID : store.patientID,  
+                publicKey: 1
+            };   
+
+            const FILE_UPLOAD_URL = API_BASE_URL + '/create_session'
+            let res = await axios.post(FILE_UPLOAD_URL, req);
+
+            if(res.status == 200){
+                console.log("Session created");
+            }else {
+                alert("Could not create the session");
+            }
+        }
+    }
 }
 </script>
 

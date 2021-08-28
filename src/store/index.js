@@ -1,13 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import { createStore } from "vuex";
 
-Vue.use(Vuex);
+// Vue.use(Vuex);
 
 export default createStore({
     state: {
         visitID: '',
         reportIDs: [],
+        patientID: ''
     },
     mutations: {
         SET_VISITID(state, payload){
@@ -15,6 +14,9 @@ export default createStore({
         },
         SET_REPORTIDS(state, payload){
             state.reportIDs = payload;
+        },
+        SET_PATIENTID(state, payload){
+            state.patientID = payload;
         }
     },
     actions: {
@@ -23,6 +25,9 @@ export default createStore({
         },
         setReportIDS(context, payload){
             context.commit('SET_REPORTIDS', payload);
+        },
+        setPatientID(context, payload){
+            context.commit('SET_PATIENTID', payload)
         }
     },
 })
