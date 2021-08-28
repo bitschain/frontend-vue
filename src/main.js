@@ -12,6 +12,7 @@ import PrimeVue from "primevue/config";
 import FileUpload from "primevue/fileupload";
 
 createApp(App)
+    .use(store)
     .use(router)
     .use(PrimeVue)
     .component("FileUpload", FileUpload)

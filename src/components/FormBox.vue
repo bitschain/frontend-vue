@@ -1,6 +1,6 @@
 <template>
-    <div id = "form-box">
-        <div id = "form-title">{{formTitle}}</div>
+    <div id="form-box">
+        <div id="form-title">{{formTitle}}</div>
     </div>
 </template>
 

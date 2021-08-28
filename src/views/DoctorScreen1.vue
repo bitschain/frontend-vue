@@ -1,6 +1,6 @@
 <template>
     <div>
-        <FormBox formTitle = "Doctor details" />
+        <FormBox formTitle="Doctor details" />
         <SubmitForm />
         <img src="../assets/images/doctor_image.jpg" alt="Image of a doctor vaccinating a patient">
     </div>
