@@ -1,6 +1,6 @@
 <template>
     <input id="patientID" type="text">
-    <button id="create-session"><span id="text1" @click="HandleInput">Create Session</span></button>
+    <button id="create-session"><span id="text1" @click="createSession">Create Session</span></button>
     <button id="generate"><span id="text2">Generate Code</span></button>
     <!-- <button id = "upload"><span id = "text3">Upload Report</span></button> -->
     <UploadDocuments />
@@ -15,7 +15,7 @@ import axios from 'axios';
 import UploadDocuments from "./UploadDocuments";
 
 export default {
-    name: "SubmitForm2",
+    name: "PatientDetails",
     components: {
         UploadDocuments,
     },
@@ -25,13 +25,13 @@ export default {
         };
     },
     methods: {
-        handleInput(){
-            store.dispatch("setPatientID", document.getElementById("patientID").value);
-        },
-
         async createSession(){
+            
+            store.dispatch("setPatientID", document.getElementById("patientID").value);
+
             const req = {
-                patientID : store.patientID,  
+                patientID : store.state.patientID,  
+                // need to generate the public key using some js library
                 publicKey: 1
             };   
 
@@ -49,22 +49,32 @@ export default {
 </script>
 
 <style scoped>
-    input{
+    #patientID{
         position: absolute;
         width: 295px;
         height: 60px;
-        left: 150px;
+        left: 152px;
         top: 250px;
         font-size: 32px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-color: white;
+    }
+    #create-session{
+        position: absolute;
+        width: 270px;
+        height: 70px;
+        left: 165px;
+        top: 400px;
+        background: rgba(85, 219, 219, 0.2);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;
     }
     #generate{
         position: absolute;
         width: 270px;
         height: 70px;
         left: 165px;
-        top: 430px;
+        top: 600px;
         background: rgba(85, 219, 219, 0.2);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;

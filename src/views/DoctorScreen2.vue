@@ -1,17 +1,17 @@
 <template>
     <FormBox formTitle = "Enter Patient ID"/>
-    <SubmitForm2 />
+    <PatientDetails />
 </template>
 
 <script>
     import FormBox from "../components/FormBox.vue"
-    import SubmitForm2 from "../components/SubmitForm2.vue"
+    import PatientDetails from "../components/PatientDetails.vue"
 
 export default {
     name: "DoctorScreen2",
     components:{
         FormBox,
-        SubmitForm2, 
+        PatientDetails, 
     }
 }
 </script>

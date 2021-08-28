@@ -1,6 +1,6 @@
 <template>
     <div class="p-p-2 p-w-50">
-        <FileUpload :customUpload="true" :multiple="true" @uploader="submitForm" />
+        <FileUpload :customUpload="true" :multiple="true" @uploader="submitForm"></FileUpload>
     </div>
 </template>
 
@@ -52,5 +52,7 @@ export default {
 </script>
 
 <style scoped>
-
+    div{
+        width: 500px;
+    }
 </style>
