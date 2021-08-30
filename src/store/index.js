@@ -7,6 +7,7 @@ export default createStore({
         visitID: '',
         reportIDs: [],
         patientID: '',
+        employeeID: '',
         qr_string: ""
     },
     mutations: {
@@ -15,6 +16,9 @@ export default createStore({
         },
         SET_REPORTIDS(state, payload){
             state.reportIDs = payload;
+        },
+        SET_EMPLOYEEID(state, payload){
+            state.employeeID = payload;
         },
         SET_PATIENTID(state, payload){
             state.patientID = payload;
@@ -29,6 +33,9 @@ export default createStore({
         },
         setReportIDS(context, payload){
             context.commit('SET_REPORTIDS', payload);
+        },
+        setEmployeeID(context, payload){
+            context.commit('SET_EMPLOYEEID', payload);
         },
         setPatientID(context, payload){
             context.commit('SET_PATIENTID', payload)

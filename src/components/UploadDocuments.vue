@@ -34,6 +34,7 @@ export default {
             });
 
             const req = {
+                employeeID: store.state.employeeID,
                 visitID: store.state.visitID,
                 documents: documents,
             };

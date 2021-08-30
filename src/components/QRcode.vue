@@ -1,5 +1,7 @@
 <template>
-  <qrcode-vue :value="value" :size="size" level="H" />
+  <div>
+    <qrcode-vue :value="value" :size="size" level="H" />
+  </div>
 </template>
 <script>
   import QrcodeVue from 'qrcode.vue'
@@ -16,3 +18,13 @@
     },
   }
 </script>
+
+<style scoped>
+  div{
+      position: absolute;
+      width: 450px;
+      height: 620px;
+      left: 800px;
+      top: 400px;
+  }
+</style>
