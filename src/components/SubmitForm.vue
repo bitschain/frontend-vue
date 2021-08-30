@@ -1,9 +1,9 @@
 <template>
     <form @submit.prevent="handleSubmit">
         <label id="input-title1">Name</label>
-        <input id="input1" type="text" v-model="name"/>
-        <label id="input-title2">Hospital</label>
-        <input id="input2" type="text" v-model="hospital"/>
+        <input id="input1" type="text"/>
+        <label id="input-title2">Employee ID</label>
+        <input id="input2" type="text"/>
         <button id="submit">
             <span id="submit-text">Submit</span>
         </button>
@@ -13,18 +13,20 @@
 <script>
 
 import router from '../router'
+import store from '../store'
 
 export default {
     name: "SubmitForm", 
     data(){
         return {
-            name: "",
-            hospital: ""
+            dummy: ""
         }
     },
     methods: {
         handleSubmit(){
             // this.$router.go({name: 'Patient'})
+            store.dispatch("setEmployeeID", document.getElementById('input-title2').value)
+            
             router.push("Patient")
             // console.log("Button has been clicked")
         }
@@ -48,7 +50,7 @@ export default {
     }   
     #input-title2{
         position: absolute;
-        width: 160px;
+        width: 200px;
         height: 49px;
         left: 115px;
         top: 425px;

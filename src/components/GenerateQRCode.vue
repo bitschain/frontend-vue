@@ -1,22 +1,28 @@
 <template>
-    <div><button id="generate"><span id="text2" @click="GenerateQRcode" >Generate QR Code</span></button></div>
+    <div class="h-100 my-auto">
+        <button id="generate">
+            <span id="text2" @click="GenerateQRcode" >Generate QR Code</span>
+        </button>
+    </div>
 </template>
 
 <script>
 import store from '../store'
 import API_BASE_URL from '../data/urls';
-import axios from 'axios';
+import axios from 'axios';      
 export default {
     name: "GenerateQRCode",
     methods:{
         async GenerateQRcode(){
             
-            store.dispatch("setPatientID", document.getElementById("patientID").value);
+            // store.dispatch("setPatientID", document.getElementById("patientID").value);
+            // ?? Where is the PatientID textbox ????
 
             const req = {
                 patientID : store.state.patientID,  
                 // need to generate the public key using some js library
-                publicKey: "AmfA+94gwP1OF8al3dIXjt9GoCjEsxfv/ECWDmacwARk" 
+                publicKey: "AmfA+94gwP1OF8al3dIXjt9GoCjEsxfv/ECWDmacwARk",
+                employeeID: store.state.employeeIDs
             };
             const FILE_UPLOAD_URL = API_BASE_URL + '/generate_qr_string'
             let res = await axios.post(FILE_UPLOAD_URL, req);
@@ -38,8 +44,7 @@ export default {
         position: absolute;
         width: 270px;
         height: 70px;
-        left: 165px;
-        top: 600px;
+        left: 45vw;
         background: rgba(85, 219, 219, 0.2);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;

@@ -43,4 +43,18 @@
 
         color: #000000;
     }
+
+    #text1{
+        position: absolute;
+        width: 330px;
+        height: 55px;
+        left: -30px;
+        top: 9px;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 49px;
+        color: #000000;
+    }
 </style>
