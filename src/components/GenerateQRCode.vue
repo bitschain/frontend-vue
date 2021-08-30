@@ -1,5 +1,9 @@
 <template>
-    <div><button id="generate"><span id="text2" @click="GenerateQRcode" >Generate QR Code</span></button></div>
+    <div class="h-100 my-auto">
+        <button id="generate">
+            <span id="text2" @click="GenerateQRcode" >Generate QR Code</span>
+        </button>
+    </div>
 </template>
 
 <script>
@@ -11,7 +15,8 @@ export default {
     methods:{
         async GenerateQRcode(){
             
-            store.dispatch("setPatientID", document.getElementById("patientID").value);
+            // store.dispatch("setPatientID", document.getElementById("patientID").value);
+            // ?? Where is the PatientID textbox ????
 
             const req = {
                 patientID : store.state.patientID,  
@@ -39,8 +44,7 @@ export default {
         position: absolute;
         width: 270px;
         height: 70px;
-        left: 165px;
-        top: 600px;
+        left: 45vw;
         background: rgba(85, 219, 219, 0.2);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;

@@ -21,8 +21,8 @@ export default {
                 publicKey: "AmfA+94gwP1OF8al3dIXjt9GoCjEsxfv/ECWDmacwARk"
             };   
 
-            const FILE_UPLOAD_URL = API_BASE_URL + '/create_session'
-            let res = await axios.post(FILE_UPLOAD_URL, req);
+            const SESSION_URL = API_BASE_URL + '/create_session'
+            let res = await axios.post(SESSION_URL, req);
 
             if(res.status == 200){
                 store.dispatch("setVisitID",res.data.visitId);
