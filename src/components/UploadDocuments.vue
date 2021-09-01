@@ -7,7 +7,7 @@
 <script>
 import axios from 'axios';
 import store from '../store/index';
-import API_BASE_URL from '../data/urls';
+import urls from '../data/urls';
 
 export default {
     data() {
@@ -35,11 +35,13 @@ export default {
 
             const req = {
                 employeeID: store.state.employeeID,
-                visitID: store.state.visitID,
-                documents: documents,
+                // visitID: store.state.visitID,
+                visitID: 1,
+                documents: documents,   
             };
             
-            const FILE_UPLOAD_URL = API_BASE_URL + '/upload_documents'
+            const FILE_UPLOAD_URL = urls.API_BASE_URL + '/upload_documents'
+            console.log(FILE_UPLOAD_URL)
             let res = await axios.post(FILE_UPLOAD_URL, req);
 
             if (res.status === 200) {

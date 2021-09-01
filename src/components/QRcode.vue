@@ -9,7 +9,7 @@
   export default {
     data() {
       return {
-        value: store.state.qr_string,
+        value: store.state.qr_string, 
         size: 300,
       }
     },

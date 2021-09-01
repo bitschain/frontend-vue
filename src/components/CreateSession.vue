@@ -7,19 +7,35 @@
 import store from '../store';
 import API_BASE_URL from '../data/urls';
 import axios from 'axios';
+import * as umbral from "umbral-pre";
+
+        // let enc = new TextEncoder();
+        // let dec = new TextDecoder("utf-8");
+
+        // As in any public-key cryptosystem, users need a pair of public and private keys.
+        // Additionally, users that delegate access to their data (like Alice, in this example)
+        // need a signing keypair.
+
+        // Key Generation (on Alice's side)
+        let alice_sk = umbral.SecretKey.random();
+        let alice_pk = alice_sk.publicKey();
 
 export default {
     name: "CreateSession",
     methods: {
+
         async createSession(){
             
             store.dispatch("setPatientID", document.getElementById("patientID").value);
+            console.log(alice_pk);
 
             const req = {
                 patientID : store.state.patientID,  
                 // need to generate the public key using some js library
                 publicKey: "AmfA+94gwP1OF8al3dIXjt9GoCjEsxfv/ECWDmacwARk"
-            };   
+            }; 
+            
+            
 
             const SESSION_URL = API_BASE_URL + '/create_session'
             let res = await axios.post(SESSION_URL, req);
@@ -70,4 +86,4 @@ export default {
         line-height: 49px;
         color: #000000;
     }
-</style>
+</style>    
