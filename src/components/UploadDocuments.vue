@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import axios from 'axios';
-import store from '../store/index';
-import API_BASE_URL from '../data/urls';
+//import axios from 'axios';
+//import store from '../store/index';
+//import urls from '../data/urls';
 
 export default {
     data() {
@@ -17,10 +17,19 @@ export default {
     },
 
     methods: {
-        encodeFile(file) {
-            let reader = new FileReader();
-            reader.readAsDataURL(file);
-            return reader.result;
+        async encodeFile(file) {
+            // let reader = new FileReader();
+            // reader.readAsText(file, "UTF-8");
+            // let result;
+            // reader.onload = (event) => {
+            //     return event.target.result;
+            // };
+            // console.log(reader.onload.result);
+            // return result;
+
+            let text = await file.text();
+            console.log(text);
+            return text;
         },
 
         async submitForm(event) {
@@ -34,19 +43,22 @@ export default {
             });
 
             const req = {
-                employeeID: store.state.employeeID,
-                visitID: store.state.visitID,
+                employeeId: 1,
+                visitId: 1,
                 documents: documents,
             };
-            
-            const FILE_UPLOAD_URL = API_BASE_URL + '/upload_documents'
-            let res = await axios.post(FILE_UPLOAD_URL, req);
 
-            if (res.status === 200) {
-                store.dispatch("setReportIDS", res.data.reportIds);
-            } else {
-                alert("Could not upload documents!");
-            }
+            console.log(req);
+
+            //console.log(urls.API_BASE_URL);
+            // const FILE_UPLOAD_URL = urls.API_BASE_URL + '/upload_documents'
+            // let res = await axios.post(FILE_UPLOAD_URL, req);
+            // console.log(res);
+            // if (res.status === 200) {
+            //     store.dispatch("setReportIDS", res.data.reportIds);
+            // } else {
+            //     alert("Could not upload documents!");
+            // }
         },  
     }
 }

@@ -1,14 +1,14 @@
 import { createStore } from "vuex";
 
-// Vue.use(Vuex);
-
 export default createStore({
     state: {
         visitID: '',
         reportIDs: [],
         patientID: '',
         employeeID: '',
-        qr_string: ""
+        qr_string: "",
+        private_key: "",
+        public_key: "",
     },
     mutations: {
         SET_VISITID(state, payload){
@@ -25,7 +25,13 @@ export default createStore({
         },
         SET_QRSTRING(state,payload){
             state.qr_string = payload;
-        }
+        },
+        SET_PRIVATE_KEY(state, payload) {
+            state.private_key = payload;
+        },
+        SET_PUBLIC_KEY(state, payload) {
+            state.public_key = payload;
+        },
     },
     actions: {
         setVisitID(context, payload){
@@ -42,7 +48,13 @@ export default createStore({
         },
         setQRstring(context, payload){
             context.commit('SET_QRSTRING', payload)
-        }
+        },
+        setPrivateKey(context, payload) {
+            context.commit('SET_PRIVATE_KEY', payload);
+        },
+        setPublicKey(context, payload) {
+            context.commit('SET_PUBLIC_KEY', payload);
+        },
     },
 
 })
