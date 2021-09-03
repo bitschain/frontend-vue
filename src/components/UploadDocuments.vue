@@ -1,13 +1,14 @@
 <template>
     <div class="p-p-2 p-w-50">
         <FileUpload :customUpload="true" :multiple="true" @uploader="submitForm"></FileUpload>
+        <div id="fileBuffer" style="opacity: 0"></div>
     </div>
 </template>
 
 <script>
-//import axios from 'axios';
-//import store from '../store/index';
-//import urls from '../data/urls';
+import axios from 'axios';
+import store from '../store/index';
+import urls from '../data/urls';
 
 export default {
     data() {
@@ -17,48 +18,45 @@ export default {
     },
 
     methods: {
-        async encodeFile(file) {
-            // let reader = new FileReader();
-            // reader.readAsText(file, "UTF-8");
-            // let result;
-            // reader.onload = (event) => {
-            //     return event.target.result;
-            // };
-            // console.log(reader.onload.result);
-            // return result;
-
-            let text = await file.text();
-            console.log(text);
-            return text;
+        encodeFile(file) {
+            let fr = new FileReader();
+            fr.readAsBinaryString(file);
+            fr.onload = function() {
+                document.getElementById("fileBuffer").textContent = fr.result;
+            }
         },
 
         async submitForm(event) {
             this.files = event.files;
             let documents = [];
             this.files.forEach((file) => {
-                documents.push({
-                    "document": this.encodeFile(file),
-                    "documentType": 1, // FIXME: determine how to set document type
-                })
+                this.encodeFile(file);
+                
+                setTimeout(async ()=>{
+                    let text = document.getElementById("fileBuffer").textContent;
+                    documents.push({
+                        "document": text,
+                        "documentType": 1, // FIXME: abhi ke liye 1
+                    })
+                    
+                    const req = {
+                        employeeId: 1,
+                        visitId: 1,
+                        documents: documents,   
+                    };
+                    console.log(req);
+                    const FILE_UPLOAD_URL = urls.API_BASE_URL + '/upload_documents'
+                    let res = await axios.post(FILE_UPLOAD_URL, req);
+
+                    if (res.status === 200) {
+                        console.log(res);
+                        store.dispatch("setReportIDS", res.data.reportIds);
+                    } else {
+                        alert("Could not upload documents!");
+                    }
+
+                }, 1000);
             });
-
-            const req = {
-                employeeId: 1,
-                visitId: 1,
-                documents: documents,
-            };
-
-            console.log(req);
-
-            //console.log(urls.API_BASE_URL);
-            // const FILE_UPLOAD_URL = urls.API_BASE_URL + '/upload_documents'
-            // let res = await axios.post(FILE_UPLOAD_URL, req);
-            // console.log(res);
-            // if (res.status === 200) {
-            //     store.dispatch("setReportIDS", res.data.reportIds);
-            // } else {
-            //     alert("Could not upload documents!");
-            // }
         },  
     }
 }

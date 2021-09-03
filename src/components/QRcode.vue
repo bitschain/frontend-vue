@@ -4,12 +4,12 @@
   </div>
 </template>
 <script>
-  import QrcodeVue from 'qrcode.vue'
-  import store from "../store"
+  import QrcodeVue from "qrcode.vue";
+  import store from "../store";
   export default {
     data() {
       return {
-        value: store.state.qr_string,
+        value: store.state.qr_string, 
         size: 300,
       }
     },
@@ -21,10 +21,6 @@
 
 <style scoped>
   div{
-      position: absolute;
-      width: 450px;
-      height: 620px;
-      left: 800px;
-      top: 400px;
+    width: 100vh;
   }
 </style>

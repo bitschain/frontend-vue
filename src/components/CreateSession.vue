@@ -1,6 +1,4 @@
 <template>
-    <!--<input id="patientID" type="text">-->
-    
     <button id="create-session"><span id="text1" @click="createSession">Create Session</span></button>
 </template>
 
@@ -8,39 +6,26 @@
 import store from '../store';
 import urls from '../data/urls';
 import axios from 'axios';
-//import * as umbral from 'umbral-pre';
+// import * as umbral from 'umbral-pre'
 
+export default{
+    async createSession(){
+        // let alice_sk = umbral.SecretKey.random();
+        let alice_pk = "einfdfinfdsufnu";
 
-export default {
-    name: "CreateSession",
-    methods: {
-        async createSession(){
-            //store.dispatch("setPatientID", document.getElementById("patientID").value);            
+        const req = {
+            patientID : store.state.patientID,  
+            // need to generate the public key using some js library
+            publicKey: alice_pk,
+        }; 
+        
 
-            // let aliceSK = umbral.SecretKey.random();
-            // let alicePK = aliceSK.publicKey();
-
-            const aliceSK = "bruh";
-            const alicePK = "moment";
-            
-            store.dispatch("setPrivateKey", aliceSK);
-            store.dispatch("setPublicKey", alicePK);
-            
-            const req = {
-                patientId : 1,  
-                publicKey: alicePK,
-                employeeId: 1,
-            };   
-
-            const SESSION_URL = urls.API_BASE_URL + '/generate_qr_string'
-            console.log(req);
-            await axios.post(SESSION_URL, req).then((res) => {
-                console.log(res);
-            });
-        }
+        const SESSION_URL = urls.API_BASE_URL + '/generate_qr_string'
+        console.log(req);
+        await axios.post(SESSION_URL, req).then((res) => {
+            console.log(res);
+        });
     }
-
-    
 }
 </script>
 
@@ -78,4 +63,4 @@ export default {
         line-height: 49px;
         color: #000000;
     }
-</style>
+</style>    
