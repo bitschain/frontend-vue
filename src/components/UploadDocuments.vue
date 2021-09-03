@@ -1,5 +1,6 @@
 <template>
-    <div style="margin-left: 100px">
+    <h2 style="color: red">HOSPITAL A</h2>
+    <div style="margin-left: 450px">
         <h2>Upload Documents</h2>
         <FileUpload :customUpload="true" :multiple="true" @uploader="submitForm"></FileUpload>
         <div id="fileBuffer" style="opacity: 0"></div>
@@ -10,6 +11,7 @@
 import axios from 'axios';
 import store from '../store/index';
 import urls from '../data/urls';
+import router from '../router/index';
 
 export default {
     data() {
@@ -52,6 +54,10 @@ export default {
                     if (res.status === 200) {
                         console.log(res);
                         store.dispatch("setReportIDS", res.data.reportIds);
+                        alert("Documents uploaded successfully!");
+                        
+                        // router.push("download_documents");
+                        router.push("download_documents");
                     } else {
                         alert("Could not upload documents!");
                     }

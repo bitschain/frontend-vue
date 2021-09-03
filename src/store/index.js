@@ -9,6 +9,7 @@ export default createStore({
         qr_string: "",
         private_key: "",
         public_key: "",
+        hospital_from_visit_id: "",
     },
     mutations: {
         SET_VISITID(state, payload){
@@ -32,6 +33,9 @@ export default createStore({
         SET_PUBLIC_KEY(state, payload) {
             state.public_key = payload;
         },
+        SET_HOSPITAL_FROM_VISIT_ID(state, payload) {
+            state.hospital_from_visit_id = payload;
+        },
     },
     actions: {
         setVisitID(context, payload){
@@ -54,6 +58,9 @@ export default createStore({
         },
         setPublicKey(context, payload) {
             context.commit('SET_PUBLIC_KEY', payload);
+        },
+        setHospitalFromVisitId(context, payload) {
+            context.commit('SET_HOSPITAL_FROM_VISIT_ID', payload);
         },
     },
 

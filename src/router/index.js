@@ -4,6 +4,8 @@ import DoctorScreen2 from '../views/DoctorScreen2.vue';
 import UploadDocuments from '../components/UploadDocuments.vue';
 import CreateSession from '../components/CreateSession.vue';
 import GenerateQRCode from '../components/GenerateQRCode.vue';
+import TransferDocs from '../components/TransferDocs.vue';
+import DownloadDocs from '../components/DownloadDocs.vue';
 
 const routes = [
     {
@@ -30,6 +32,16 @@ const routes = [
         path: '/generate_qr_string',
         name: 'GenerateQRCode',
         component: GenerateQRCode,
+    },
+    {
+        path: '/transfer_documents',
+        name: 'TransferDocs',
+        component: TransferDocs,
+    },
+    {
+        path: '/download_documents',
+        name: 'DownloadDocs',
+        component: DownloadDocs,
     }
 ]
 

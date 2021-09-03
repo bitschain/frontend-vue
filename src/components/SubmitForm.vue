@@ -11,9 +11,8 @@
 </template>
 
 <script>
-
-import router from '../router'
-import store from '../store'
+import router from '../router';
+import store from '../store';
 
 export default {
     name: "SubmitForm", 
@@ -25,9 +24,11 @@ export default {
     methods: {
         handleSubmit(){
             // this.$router.go({name: 'Patient'})
-            store.dispatch("setEmployeeID", document.getElementById('input-title2').value)
+            store.dispatch("setEmployeeID", document.getElementById('input-title2').value);
             
-            router.push("Patient")
+            setTimeout(() => {
+                router.push("generate_qr_string");
+            }, 3000);
             // console.log("Button has been clicked")
         }
     }

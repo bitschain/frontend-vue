@@ -1,4 +1,5 @@
 <template>
+    <h2 style="color: red">HOSPITAL A</h2>
     <div class="container">
         <button id="generate" @click="GenerateQRcode">
             Generate QR Code
@@ -15,6 +16,7 @@
 import store from '../store'
 import urls from '../data/urls';
 import axios from 'axios';
+import router from '../router/index';
 
 import QrcodeVue from "qrcode.vue";
 
@@ -34,9 +36,18 @@ export default {
             const FILE_UPLOAD_URL = urls.API_BASE_URL + '/generate_qr_string'
             let res = await axios.post(FILE_UPLOAD_URL, req);
             if(res.status == 200){
-                const final_string = JSON.stringify(res);
-                console.log(final_string);
+                console.log(res);
+
+                const final_string = JSON.stringify(res.data);
                 store.dispatch("setQRstring", final_string);
+
+                const hospital_from_visit_id = res.data.visit_id;
+                console.log(hospital_from_visit_id);
+                store.dispatch("setHospitalFromVisitId", hospital_from_visit_id);
+
+                setTimeout(() => {
+                    router.push("create_session");
+                }, 5000);
             }else {
                 alert("Could not generate the qr code");
             }
