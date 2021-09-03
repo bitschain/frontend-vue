@@ -1,5 +1,8 @@
 <template>
-    <button id="create-session"><span id="text1" @click="createSession">Create Session</span></button>
+    <h2>Create a new Session</h2>
+    <button id="create-session" @click="createSession">
+        Create Session
+    </button>
 </template>
 
 <script>
@@ -30,37 +33,12 @@ export default{
 </script>
 
 <style>
-    #patientID{
-        position: absolute;
-        width: 295px;
-        height: 60px;
-        left: 152px;
-        top: 250px;
-        font-size: 32px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        background-color: white;
-    }
     #create-session{
-        position: absolute;
         width: 270px;
         height: 70px;
-        left: 165px;
-        top: 400px;
         background: rgba(85, 219, 219, 0.2);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;
-    }
-    #text1{
-        position: absolute;
-        width: 330px;
-        height: 55px;
-        left: -30px;
-        top: 9px;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 30px;
-        line-height: 49px;
-        color: #000000;
+        font-size: x-large;
     }
 </style>    

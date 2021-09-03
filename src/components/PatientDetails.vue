@@ -1,9 +1,16 @@
 <template>
-    <CreateSession />
-    <GenerateQRCode />
-    <UploadDocuments />
-    <QRcode />
-
+    <div class="container">
+        <div class="left">
+            <UploadDocuments />
+            <div style="height: 100px"></div>
+            <CreateSession />
+        </div>
+        <div class="right">
+            <div>
+                <GenerateQRCode />
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -12,7 +19,6 @@
 // import axios from 'axios';
 import GenerateQRCode from "./GenerateQRCode";
 import UploadDocuments from "./UploadDocuments";
-import QRcode from '@/components/QRcode';
 import CreateSession from './CreateSession';
 
 export default {
@@ -20,7 +26,6 @@ export default {
     components: {
         UploadDocuments,
         GenerateQRCode,
-        QRcode,
         CreateSession
     },
     data(){
@@ -33,5 +38,16 @@ export default {
 </script>
 
 <style scoped>
-    
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .left {
+        width: 50%;
+    }
+
+    .right {
+        width: 50%;
+    }
 </style>

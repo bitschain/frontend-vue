@@ -4,7 +4,10 @@
             Generate QR Code
         </button>
         
-        <qrcode-vue v-if="qrString.length > 0" :value="qrString" :size="300" level="H" />
+        <div v-if="qrString.length > 0">
+            <h2>QR Code</h2>
+            <qrcode-vue  :value="qrString" :size="300" level="H" />
+        </div>
     </div>        
 </template>
 

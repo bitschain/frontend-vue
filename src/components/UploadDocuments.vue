@@ -1,5 +1,6 @@
 <template>
-    <div class="p-p-2 p-w-50">
+    <div style="margin-left: 100px">
+        <h2>Upload Documents</h2>
         <FileUpload :customUpload="true" :multiple="true" @uploader="submitForm"></FileUpload>
         <div id="fileBuffer" style="opacity: 0"></div>
     </div>
